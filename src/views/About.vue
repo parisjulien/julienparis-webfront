@@ -1,6 +1,6 @@
 <template>
   <main id="about">
-
+    <h1>Page ABOUT</h1>
   </main>
 </template>
 

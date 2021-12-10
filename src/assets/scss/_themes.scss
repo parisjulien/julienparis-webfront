@@ -1,11 +1,15 @@
 $themes: (
 		darkTheme: (
-				"text-color": rgb(245, 0, 0),
-				"bg-color": #424242,
+				"text-color": white,
+				"title-color": white,
+				"nav-text-color": white,
+				"bg-color": #222,
 		),
 		lightTheme: (
-				"text-color": black,
-				"bg-color": #f5f5f5,
+				"text-color": white,
+				"title-color": #7E79FF,
+				"nav-text-color": #7E79FF,
+				"bg-color": white,
 		),
 );
 
