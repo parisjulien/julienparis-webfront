@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <main class="home">
     <h1>{{ message }}</h1>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-const message = 'Mon super site !';
+const message = 'Page HOME';
 </script>
