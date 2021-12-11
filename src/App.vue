@@ -26,4 +26,15 @@ import NavigationBtn from "@/components/navigation/NavigationBtn"
   #site-container {
     display: flex;
   }
+
+  main {
+    @include theme() {
+      background:
+          linear-gradient( rgba(0, 11, 62, .3) 100%, rgba(0, 11, 62, .3)100%),
+          url('./assets/img/' + theme-get('bg-url')) no-repeat top center / cover;
+    }
+
+    flex: 1;
+    min-height: 100vh;
+  }
 </style>
