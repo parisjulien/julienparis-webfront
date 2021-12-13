@@ -36,5 +36,6 @@ import NavigationBtn from "@/components/navigation/NavigationBtn"
 
     flex: 1;
     min-height: 100vh;
+    position: relative;
   }
 </style>
