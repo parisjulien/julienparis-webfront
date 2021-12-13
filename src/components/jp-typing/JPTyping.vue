@@ -1,5 +1,5 @@
 <template>
-  <p class="jp-typing"><span v-for="c in letters" :key="c">{{ c }}</span></p>
+  <p class="jp-typing">{{ staticString }} <span v-for="c in letters" :key="c">{{ c }}</span></p>
 </template>
 
 <script setup lang="ts">
@@ -8,6 +8,8 @@ import {defineProps, ref, watchEffect} from "vue";
 const props = defineProps({
   // The array of strings we want to displayed
   strings: Array,
+  // A static string.
+  staticString: String,
   // The speed we want to write every string.
   typedSpeed: Number,
   // The time we want to wait before erase the last string.
@@ -40,10 +42,8 @@ function typingSequence(currentString, strings, typedSpeed, waitTime, isLoop) {
   // The first interval allow to push all letter from currentString into the letters array.
   let typed = setInterval(() => {
     // Write letter by letter every {typedSpeed} ms
-    setTimeout(() => {
-      letters.value.push(currentString.charAt(letterIndex));
-      letterIndex++;
-    }, typedSpeed)
+    letters.value.push(currentString.charAt(letterIndex));
+    letterIndex++;
 
     // Stop Writing interval if the string is completly typed.
     if (letterIndex == currentString.length) {
@@ -54,10 +54,8 @@ function typingSequence(currentString, strings, typedSpeed, waitTime, isLoop) {
         setTimeout(() => {
           // The second interval allow to erase last string letter by letter.
           typed = setInterval(() => {
-            setTimeout(() => {
-              letters.value.pop();
-              letterIndex--;
-            }, typedSpeed)
+            letters.value.pop();
+            letterIndex--;
 
             // When the last string is completly erase, re-run the typingSequence for the next string.
             if (letterIndex == 0) {
@@ -71,10 +69,8 @@ function typingSequence(currentString, strings, typedSpeed, waitTime, isLoop) {
           // Interval to erase last string letter by letter if is the last string but it's loop animation.
           setTimeout(() => {
             typed = setInterval(() => {
-              setTimeout(() => {
-                letters.value.pop();
-                letterIndex--;
-              }, typedSpeed)
+              letters.value.pop();
+              letterIndex--;
 
               // When the last string is completly erase, re-run the typingSequence from start.
               if (letterIndex == 0) {
