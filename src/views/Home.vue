@@ -1,12 +1,22 @@
 <template>
   <main class="home">
     <h2>Julien Paris</h2>
-    <JPTyping is-loop :typed-speed="30" :wait-time="3000" :strings="['Développeur web fullstack', 'Ceci est un test']" />
+    <JPTyping
+        is-loop
+        :typed-speed="40"
+        :wait-time="3000"
+        :strings="strings"
+    />
   </main>
 </template>
 
 <script setup lang="ts">
 import JPTyping from '@/components/jp-typing/JPTyping.vue';
+
+const strings = [
+    'Développeur web fullstack',
+    'Ingénieur Devops'
+]
 </script>
 
 <style scoped lang="scss">
