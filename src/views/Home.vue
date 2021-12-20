@@ -1,5 +1,5 @@
 <template>
-  <main class="home">
+  <div class="home">
     <h2>Julien Paris</h2>
     <JPTyping
         is-loop
@@ -7,7 +7,7 @@
         :wait-time="3000"
         :strings="strings"
     />
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -26,6 +26,10 @@ const strings = [
   justify-content: center;
   align-items: center;
 
+  flex: 1;
+  min-height: 100vh;
+  position: relative;
+
   h2, p {
     @include theme() {
       color: theme-get('text-color');
@@ -43,4 +47,5 @@ const strings = [
     font-size: 2rem;
   }
 }
+
 </style>

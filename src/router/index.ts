@@ -11,7 +11,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/a-propos',
     name: 'About',
-    component: About
+    component: About,
+    meta: { transitionName: 'zoom' }
   }
 ]
 

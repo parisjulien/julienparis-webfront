@@ -5,7 +5,13 @@
       <NavigationBtn to="/a-propos" icon="about" text="À propos" />
     </Navigation>
 
-    <router-view/>
+    <main>
+      <router-view v-slot="{ Component }">
+        <transition mode="out-in" name="slide">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </main>
   </div>
 </template>
 
@@ -37,5 +43,45 @@ import NavigationBtn from "@/components/navigation/NavigationBtn"
     flex: 1;
     min-height: 100vh;
     position: relative;
+    overflow: hidden;
   }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all .5s ease-out;
+    .tag {
+      transition: all .5s ease-out;
+    }
+  }
+
+  .slide-enter-from {
+    position: absolute;
+    left: -100%;
+
+    .tag {
+      left: 0px;
+      top: 356px;
+    }
+  }
+
+  .slide-enter-to {
+    position: absolute;
+    left: 0;
+
+    .tag {
+      left: 80px;
+      top: 42px;
+    }
+  }
+
+  .slide-leave-from {
+    position: absolute;
+    left: 0;
+  }
+
+  .slide-leave-to {
+    position: absolute;
+    left: -100%;
+  }
+
 </style>
